@@ -98,6 +98,8 @@ func ListenToClient(IPAddr string, PortNum string) error {
 
 
 func ListenToDataNodes(IPAddr string, NodeId int64, Probability float64)error{
+	fmt.Println("escuchando a otros nodos desde la dirección IP: ",IPAddr)
+
 	switch NodeId{
 	case 1:
 		go ListenToDN(IPAddr,"8997",NodeId,Probability)
@@ -243,7 +245,6 @@ func main(){
 	Messages=&msgs
 	IPAddr:=getIPAddr()
 	//log.Println(IpAddr)
-	fmt.Println("dirección IP de dataNode: ",IPAddr)
 
 	datanodeid:
 		fmt.Println("ingrese el id del datanode: '1', '2' o '3'")
@@ -253,6 +254,9 @@ func main(){
 		fmt.Println("ID incorrecto, ingrese '1', '2' o '3'")
 		goto datanodeid
 	}
+	
+	fmt.Println("dirección IP de dataNode ",NodeId,": ",IPAddr)
+
 	mode:
 		fmt.Println("seleccione el modo: ")
 		fmt.Println("ingrese '1' para modo excluyente distribuido")
@@ -278,7 +282,6 @@ func main(){
 	NameNode=dnc
 
 
-	fmt.Println("escuchando a otros nodos")
 	if err:=ListenToDataNodes(IPAddr,NodeId,0.99); err!=nil{
 		log.Fatalf("error escuchando: %v",err)
 	}
