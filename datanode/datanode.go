@@ -117,8 +117,8 @@ func ListenToDataNodes(IPAddr string, NodeId int64, Probability float64)error{
 }
 
 func ListenToDN(IPAddr string, PortNum string, NodeId int64, Probability float64) error {
-	portstring:=IPAddr+":"+PortNum
-	fmt.Println("esperando a namenode")
+	portstring:=":"+PortNum
+	fmt.Println("esperando a datanode desde: "+IPAddr+portstring)
 	lis, err := net.Listen("tcp", portstring)
 	if err!=nil{
 		fmt.Printf("Error escuchando a otro data node en el puerto :%s: %v", portstring, err)
@@ -214,7 +214,7 @@ func ConnectToDataNodes(NodeId int64){
 
 func ConnectToDN(PortNum string, IPAddr string, letter string, friendId int64)(error){
 	CompleteAddr:=IPAddr+":"+PortNum
-	fmt.Println("esperando a datanode para conectarme con el ",friendId)
+	fmt.Println("intentando conectar con el nodo",friendId," desde ",CompleteAddr)
 	conn, err:=grpc.Dial(CompleteAddr,grpc.WithInsecure(),grpc.WithBlock())
 		//defer conn.Close()
 	if err!=nil{
