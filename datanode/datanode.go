@@ -214,7 +214,7 @@ func ConnectToDataNodes(NodeId int64){
 
 func ConnectToDN(PortNum string, IPAddr string, letter string, friendId int64)(error){
 	CompleteAddr:=IPAddr+":"+PortNum
-	fmt.Println("esperando a datanode ",friendId)
+	fmt.Println("esperando a datanode para conectarme con el ",friendId)
 	conn, err:=grpc.Dial(CompleteAddr,grpc.WithInsecure(),grpc.WithBlock())
 		//defer conn.Close()
 	if err!=nil{
