@@ -125,7 +125,7 @@ func ListenToDN(IPAddr string, PortNum string, NodeId int64, Probability float64
 		return err	
 	} else{
 		fmt.Printf("node id :%d\n",NodeId)
-		fmt.Println("Escuchado data node desde: ",IPAddr+portstring)
+		fmt.Println("Escuchado data node desde: ",portstring)
 	}
 
 	//filechunks:=[](fc.FileChunk){}
