@@ -47,9 +47,6 @@ func (server *Server) ChunksOrder(req *OrderReq, stream ClientName_ChunksOrderSe
 		errCheck(s.Err())
 		muchotexto := s.Text()
 		
-		var nombre string
-		var partes int
-		
 		
 		//fmt.Println("text: ",muchotexto)
 		//fmt.Println("len text: ",len(muchotexto))
