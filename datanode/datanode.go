@@ -282,7 +282,7 @@ func main(){
 	NameNode=dnc
 
 
-	if err:=ListenToDataNodes(IPAddr,NodeId,0.99); err!=nil{
+	if err:=ListenToDataNodes(IPAddr,NodeId,0.7); err!=nil{
 		log.Fatalf("error escuchando: %v",err)
 	}
 	time.Sleep(120 * time.Millisecond)
